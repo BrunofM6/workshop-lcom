@@ -42,8 +42,8 @@ Podemos encaixar todas estas ferramentas num só item:
   uint16_t blue: 5;
 };`
 E depois o compilador trabalha por nós, faz as máscaras e tudo, por isso podemos fazer coisas desse tipo:
-```rgb cor;
-cor.blue = 3;```
+``` rgb cor;
+cor.blue = 3; ```
 
 #### NOTA:
 Big-Endian VS Little-Endian:
@@ -63,7 +63,7 @@ Valor do apontador é onde começa, tipo define onde vai acabar. Apontador tamb�
 Um apontador ocupa sempre o *tipo nativo*, como o inteiro. O seu endereço não muda porque é atribuído pelo OS.
 Quando se incrementa o apontador, incrementa-se pelo tamanho do valor para o qual aponta.
 
-`*p = null -> inválido`
+` *p = null -> inválido `
 
 Temos de ver casos a caso, cumprir os testes, certificarmo-nos do caso null, e indicar o erro.
 
@@ -85,11 +85,11 @@ p = 0x12345678
 Várias perspectivas:
 Posso querer ver a cor toda, só o azul, etc. Quase como polimorfismo.
 
-```struct field{
+``` struct field{
   uint8_t a; // 1 byte
   uint16_t b; // 2
   uint32_t c; // 4
-}``` poderia haver padding, vamos considerar que não, mas nesse caso invertia-se a ordem de definição, são 7 bytes.
+}; ``` poderia haver padding, vamos considerar que não, mas nesse caso invertia-se a ordem de definição, são 7 bytes.
 
 podemos guardar todos este valores só ocupando o tamanho do maior. sobreposição. dá jeito para eficiência de memória. e efetivamente permite várias definições.
 exemplos:
@@ -101,7 +101,7 @@ exemplos:
     uint8_t G;
     uint8_t B;
   }
-};``` cor é tudo, separada em 4 valores definidos diferentes.
+}; ``` cor é tudo, separada em 4 valores definidos diferentes.
 
 ```union float32{
   uint32_t value;
@@ -110,6 +110,6 @@ exemplos:
     uint32_t exp : 8;
     uint32_t mantissa : 23; // soma deles dá tamanho do tipo, 32.
   }
-};```
+}; ```
 
 Tudo isto permite-me gerar dados, alterar e armazenar de forma comfortável. 
