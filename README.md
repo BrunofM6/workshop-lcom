@@ -23,7 +23,7 @@ Usa-se máscaras para selecionar os bits, por isso são muito importantes. Opera
 Exemplo:
 RGB com 16 bits:
 R R R R R G G G G G G B B B B B
-uint16_t cor;
+`uint16_t cor;`
 selecionar azul -> azul = (cor & 0x001F)
 selecionar verde -> verde = ((cor & 0x0E70) >> 5) 
 selecionar vermelho -> vermelho = ((cor & 0xF800) >> 11)
@@ -36,7 +36,8 @@ Exemplo em C:
 
 ### Structs:
 Podemos encaixar todas estas ferramentas num só item:
-``` struct rgb{ 
+```c
+struct rgb{ 
   uint16_t red: 5; 
   uint16_t green: 6; 
   uint16_t blue: 5; 
@@ -50,9 +51,11 @@ Big-Endian VS Little-Endian:
 left to right memory alloc vs right to left memory alloc.
 
 #### Agora aplicando ao Timer:
+```c
 struct control {
   //encher a partir do material de referência.
-} -> não esquecer que intel e arm definem-se ao contrário. mas aquilo é corrido em virtual box em LCOM, por isso a máquina é igual para todos.
+}; ``` 
+- não esquecer que intel e arm definem-se ao contrário. mas aquilo é corrido em virtual box em LCOM, por isso a máquina é igual para todos.
 
 Quem perceber isto, é contratado na Synopsys ou Intel. Low-level pensa em poupar memória, high-level já são gulosos. (Prof. Nuno certified (ele recrutava pessoas))
 
@@ -70,7 +73,6 @@ Temos de ver casos a caso, cumprir os testes, certificarmo-nos do caso null, e i
 ### Enumerados:
 É como um Word, como o nome diz, enumerar coisas fazer uma lista que começa no 0.
 
-
 ### Extend:
 Uma variável aqui usada, está definida noutro ficheiro.
 
@@ -85,14 +87,16 @@ p = 0x12345678
 Várias perspectivas:
 Posso querer ver a cor toda, só o azul, etc. Quase como polimorfismo.
 
-``` struct field{
+```c
+ struct field{
   uint8_t a; // 1 byte
   uint16_t b; // 2
   uint32_t c; // 4
-}; poderia haver padding, vamos considerar que não, mas nesse caso invertia-se a ordem de definição, são 7 bytes.
+}; /*poderia haver padding, vamos considerar que não, mas nesse caso invertia-se a ordem de definição, são 7 bytes. */```
 
 podemos guardar todos este valores só ocupando o tamanho do maior. sobreposição. dá jeito para eficiência de memória. e efetivamente permite várias definições.
 exemplos:
+```c
 union color{
   uint32_t i32;
   struct field{
@@ -101,7 +105,7 @@ union color{
     uint8_t G;
     uint8_t B;
   }
-}; cor é tudo, separada em 4 valores definidos diferentes.
+}; //cor é tudo, separada em 4 valores definidos diferentes.
 
 union float32{
   uint32_t value;
