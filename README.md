@@ -8,8 +8,9 @@ Programação em C é frágil (e mais difícil do que parece), é fácil cometer
 - struct;
 - extend.
 
-sysoutb() -> para escrever
-utils_sys_inb() (alteração de sysinb()) -> para ler
+System calls:
+- sysoutb() -> para escrever
+- utils_sys_inb() (alteração de sysinb()) -> para ler
 
 Programação em C é fundamental, faz muito do que usa a mais alto nível.
 
@@ -30,8 +31,8 @@ selecionar vermelho -> vermelho = ((cor & 0xF800) >> 11)
 #### Macros:
 Estas operações têm o potencial de serem utilizadas bastantes vezes, para definir estas operações podemos usar *macros*:
 Exemplo em C:
-#define GET_AZUL(cor) (cor & 0x001F)
-#define SET_BLUE(color, val)\(color, (val & 0x1F))
+- #define GET_AZUL(cor) (cor & 0x001F)
+- #define SET_BLUE(color, val)\(color, (val & 0x1F))
 
 ### Structs:
 Podemos encaixar todas estas ferramentas num só item:
