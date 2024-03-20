@@ -36,12 +36,12 @@ Exemplo em C:
 
 ### Structs:
 Podemos encaixar todas estas ferramentas num só item:
-` struct rgb{ `
-` uint16_t red: 5; `
-`  uint16_t green: 6; `
-`  uint16_t blue: 5; `
-`}; `
-E depois o compilador trabalha por nós, faz as máscaras e tudo, por isso podemos fazer coisas desse tipo:
+``` struct rgb{ 
+  uint16_t red: 5; 
+  uint16_t green: 6; 
+  uint16_t blue: 5; 
+}; ```
+E depois o compilador trabalha por nós, faz as máscaras e tudo, por isso podemos fazer coisas desse tipo: 
 ` rgb cor; `
 `cor.blue = 3; `
 
@@ -89,11 +89,11 @@ Posso querer ver a cor toda, só o azul, etc. Quase como polimorfismo.
   uint8_t a; // 1 byte
   uint16_t b; // 2
   uint32_t c; // 4
-}; ``` poderia haver padding, vamos considerar que não, mas nesse caso invertia-se a ordem de definição, são 7 bytes.
+}; poderia haver padding, vamos considerar que não, mas nesse caso invertia-se a ordem de definição, são 7 bytes.
 
 podemos guardar todos este valores só ocupando o tamanho do maior. sobreposição. dá jeito para eficiência de memória. e efetivamente permite várias definições.
 exemplos:
-```union color{
+union color{
   uint32_t i32;
   struct field{
     uint8_t A;
@@ -101,9 +101,9 @@ exemplos:
     uint8_t G;
     uint8_t B;
   }
-}; ``` cor é tudo, separada em 4 valores definidos diferentes.
+}; cor é tudo, separada em 4 valores definidos diferentes.
 
-```union float32{
+union float32{
   uint32_t value;
   struct field{
     uint32_t sinal : 1;
