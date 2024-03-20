@@ -31,19 +31,19 @@ selecionar vermelho -> vermelho = ((cor & 0xF800) >> 11)
 #### Macros:
 Estas operações têm o potencial de serem utilizadas bastantes vezes, para definir estas operações podemos usar *macros*:
 Exemplo em C:
-- #define GET_AZUL(cor) (cor & 0x001F)
-- #define SET_BLUE(color, val)\(color, (val & 0x1F))
+` #define GET_AZUL(cor) (cor & 0x001F) `
+` #define SET_BLUE(color, val)\(color, (val & 0x1F)) `
 
 ### Structs:
 Podemos encaixar todas estas ferramentas num só item:
-`struct rgb{
-  uint16_t red: 5;
-  uint16_t green: 6;
-  uint16_t blue: 5;
-};`
+` struct rgb{ `
+` uint16_t red: 5; `
+`  uint16_t green: 6; `
+`  uint16_t blue: 5; `
+`}; `
 E depois o compilador trabalha por nós, faz as máscaras e tudo, por isso podemos fazer coisas desse tipo:
-``` rgb cor;
-cor.blue = 3; ```
+` rgb cor; `
+`cor.blue = 3; `
 
 #### NOTA:
 Big-Endian VS Little-Endian:
