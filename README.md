@@ -1,4 +1,4 @@
-# Workshop LCOM
+# Workshop LCOM by Prof. Nuno Cardoso
 ## Tópicos principais:
 Programação em C é frágil (e mais difícil do que parece), é fácil cometer erros e fazer bugs, sendo assim os tópicos fundamentais são:
 - máscaras; (selecionar bits) -- importante
